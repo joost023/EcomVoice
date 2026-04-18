@@ -514,6 +514,12 @@ NS_ASSUME_NONNULL_END
     [self.compositionRoot.settingsMigration execute];
     self.helpMenuActionRedirect.target = self.compositionRoot.helpMenuActionTarget;
     [self configureUserAgent];
+
+    // EcomVoice MWI: observe voicemail dial requests from the badge button
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dialVoicemailFromMWI:)
+                                                 name:@"MWIDialVoicemailNotification"
+                                               object:nil];
     self.accountsMenuItems = [[AccountsMenuItems alloc] initWithMenu:self.windowMenu controllers:self.accountControllers];
     NSUserNotificationCenter.defaultUserNotificationCenter.delegate = self;
     NSApp.servicesProvider = self;
@@ -795,6 +801,12 @@ NS_ASSUME_NONNULL_END
         [self.accountControllers.enabled.firstObject makeCallToDestinationRegisteringAccountIfNeeded:
          [[SanitizedCallDestination alloc] initWithString:destination]];
     }
+}
+
+// EcomVoice MWI: handle voicemail dial notification from MWIManager
+- (void)dialVoicemailFromMWI:(NSNotification *)notification {
+    NSString *destination = notification.userInfo[@"destination"] ?: @"*97";
+    [self makeCallOrRememberDestination:destination];
 }
 
 - (BOOL)canMakeCall {
