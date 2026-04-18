@@ -57,4 +57,11 @@ class UserDefaultsKeys: NSObject {
     // EcomVoice CRM Caller ID
     static let crmWebhookURL = "CRMWebhookURL"
     static let crmEnabled = "CRMEnabled"
+
+    // EcomVoice Call Outcome Webhook
+    static let callOutcomeWebhookURL = "CallOutcomeWebhookURL"
+    static let callOutcomeWebhookEnabled = "CallOutcomeWebhookEnabled"
+
+    // EcomVoice DTMF Macros
+    static let dtmfMacros = "DTMFMacros"
 }

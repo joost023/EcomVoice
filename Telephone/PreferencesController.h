@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class GeneralPreferencesViewController, AccountPreferencesViewController;
 @class SoundPreferencesViewController, NetworkPreferencesViewController;
 @class BLFPreferencesViewController;
+@class CRMPreferencesViewController;
+@class DTMFMacroPreferencesViewController;
 
 // A preferences controller.
 @interface PreferencesController : NSWindowController <SoundIOPreferences>
@@ -53,6 +55,12 @@ NS_ASSUME_NONNULL_BEGIN
 // BLF preferences view controller (EcomVoice).
 @property(nonatomic, readonly) BLFPreferencesViewController *blfPreferencesViewController;
 
+// CRM caller ID preferences view controller (EcomVoice).
+@property(nonatomic, readonly) CRMPreferencesViewController *crmPreferencesViewController;
+
+// DTMF macro preferences view controller (EcomVoice).
+@property(nonatomic, readonly) DTMFMacroPreferencesViewController *dtmfPreferencesViewController;
+
 // Outlets.
 //
 @property(nonatomic, weak) IBOutlet NSToolbar *toolbar;
@@ -60,8 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) IBOutlet NSToolbarItem *accountsToolbarItem;
 @property(nonatomic, weak) IBOutlet NSToolbarItem *soundToolbarItem;
 @property(nonatomic, weak) IBOutlet NSToolbarItem *networkToolbarItem;
-// EcomVoice BLF tab (added programmatically)
+// EcomVoice tabs (added programmatically)
 @property(nonatomic) NSToolbarItem *blfToolbarItem;
+@property(nonatomic) NSToolbarItem *crmToolbarItem;
+@property(nonatomic) NSToolbarItem *dtmfToolbarItem;
 
 - (instancetype)initWithDelegate:(id<PreferencesControllerDelegate>)delegate
                        userAgent:(AKSIPUserAgent *)userAgent

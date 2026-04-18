@@ -59,6 +59,63 @@
     return nil;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self addDTMFMacrosButton];
+}
+
+- (void)addDTMFMacrosButton {
+    // Programmatic DTMF Macros button — shows a popup menu of configured macros
+    NSButton *macrosButton = [NSButton buttonWithTitle:@"DTMF"
+                                                target:self
+                                                action:@selector(showDTMFMacros:)];
+    macrosButton.bezelStyle = NSBezelStyleRounded;
+    macrosButton.font = [NSFont systemFontOfSize:10.0];
+    macrosButton.toolTip = @"DTMF Macros";
+    macrosButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:macrosButton];
+
+    [NSLayoutConstraint activateConstraints:@[
+        [macrosButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-8.0],
+        [macrosButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-8.0],
+    ]];
+}
+
+- (IBAction)showDTMFMacros:(id)sender {
+    NSArray<DTMFMacro *> *macros = [DTMFMacroManager shared].macros;
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@"DTMF Macros"];
+
+    if (macros.count == 0) {
+        NSMenuItem *emptyItem = [[NSMenuItem alloc] initWithTitle:@"Geen macro's geconfigureerd"
+                                                           action:nil
+                                                    keyEquivalent:@""];
+        emptyItem.enabled = NO;
+        [menu addItem:emptyItem];
+    } else {
+        for (DTMFMacro *macro in macros) {
+            NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:macro.name
+                                                          action:@selector(sendDTMFMacroItem:)
+                                                   keyEquivalent:@""];
+            item.target = self;
+            item.representedObject = macro;
+            [menu addItem:item];
+        }
+    }
+
+    NSButton *button = (NSButton *)sender;
+    [menu popUpMenuPositioningItem:nil
+                        atLocation:NSMakePoint(0, button.bounds.size.height)
+                            inView:button];
+}
+
+- (void)sendDTMFMacroItem:(NSMenuItem *)sender {
+    DTMFMacro *macro = sender.representedObject;
+    AKSIPCall *call = [[self callController] call];
+    if (macro != nil && call != nil) {
+        [[DTMFMacroManager shared] sendMacro:macro to:call];
+    }
+}
+
 - (void)removeObservations {
     [[self displayedNameField] unbind:NSValueBinding];
     [[self statusField] unbind:NSValueBinding];

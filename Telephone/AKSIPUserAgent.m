@@ -26,6 +26,7 @@
 #import "AKSIPURIParser.h"
 #import "PJSUACallbacks.h"
 #import "PJSUAOnBuddyState.h"
+#import "PJSUAOnMWI.h"
 
 #import "Telephone-Swift.h"
 
@@ -393,6 +394,7 @@ static const BOOL kAKSIPUserAgentDefaultLocksCodec = YES;
     userAgentConfig.cb.on_call_replaced = &PJSUAOnCallReplaced;
     userAgentConfig.cb.on_reg_state = &PJSUAOnAccountRegistrationState;
     userAgentConfig.cb.on_buddy_state = &PJSUAOnBuddyState; // EcomVoice BLF
+    userAgentConfig.cb.on_mwi_info = &PJSUAOnMWI;          // EcomVoice MWI voicemail indicator
     userAgentConfig.cb.on_nat_detect = &PJSUAOnNATDetect;
     userAgentConfig.cb.on_acc_find_for_incoming = &PJSUAOnAccountFindForIncoming;
 

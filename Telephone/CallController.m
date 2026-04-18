@@ -487,6 +487,24 @@ static const NSTimeInterval kRedialButtonReenableTime = 1.0;
 - (void)SIPCallDidDisconnect:(NSNotification *)notification {
     [self setCallActive:NO];
     [[self activeCallViewController] stopCallTimer];
+
+    // EcomVoice: report call outcome via webhook
+    {
+        NSTimeInterval duration = 0.0;
+        if ([self callStartTime] > 0) {
+            duration = [NSDate timeIntervalSinceReferenceDate] - [self callStartTime];
+        }
+        NSString *remoteNumber = [[[self call] remoteURI] user] ?: @"";
+        BOOL wasAnswered = [self callStartTime] > 0;
+        BOOL incoming = [[self call] isIncoming];
+        NSString *direction = incoming ? @"inbound" : @"outbound";
+        NSString *agentExtension = [[[self call] localURI] user] ?: @"";
+        [[CallOutcomeWebhook shared] reportCallEndedWithRemoteNumber:remoteNumber
+                                                          direction:direction
+                                                    durationSeconds:(NSInteger)duration
+                                                        wasAnswered:wasAnswered
+                                                     agentExtension:agentExtension];
+    }
     
     NSString *preferredLocalization = [[NSBundle mainBundle] preferredLocalizations][0];
     

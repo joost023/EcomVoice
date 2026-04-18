@@ -39,6 +39,9 @@
 @property(nonatomic) BLFSubscriptionManager *blfManager;
 @property(nonatomic) BLFPanelViewController *blfPanelViewController;
 
+// EcomVoice MWI voicemail badge
+@property(nonatomic) NSButton *mwiBadgeButton;
+
 @end
 
 @implementation AccountWindowController
@@ -89,6 +92,46 @@
     }
 
     [self showOfflineStateAnimated:NO];
+    [self setupMWIBadge];
+}
+
+- (void)setupMWIBadge {
+    // Create a small badge button for MWI voicemail indicator
+    self.mwiBadgeButton = [NSButton buttonWithTitle:@""
+                                             target:self
+                                             action:@selector(mwiBadgeTapped:)];
+    self.mwiBadgeButton.bezelStyle = NSBezelStyleRounded;
+    self.mwiBadgeButton.hidden = YES;
+    self.mwiBadgeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mwiBadgeButton.wantsLayer = YES;
+    self.mwiBadgeButton.layer.cornerRadius = 6.0;
+    [self.window.contentView addSubview:self.mwiBadgeButton positioned:NSWindowAbove relativeTo:nil];
+
+    NSLayoutConstraint *top = [self.mwiBadgeButton.topAnchor constraintEqualToAnchor:self.window.contentView.topAnchor constant:6.0];
+    NSLayoutConstraint *trailing = [self.mwiBadgeButton.trailingAnchor constraintEqualToAnchor:self.window.contentView.trailingAnchor constant:-6.0];
+    [NSLayoutConstraint activateConstraints:@[top, trailing]];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(mwiStatusChanged:)
+                                                 name:@"MWIStatusChangedNotification"
+                                               object:nil];
+}
+
+- (void)mwiStatusChanged:(NSNotification *)notification {
+    NSInteger unread = [notification.userInfo[@"unread"] integerValue];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (unread > 0) {
+            NSString *label = [NSString stringWithFormat:@"Voicemail: %ld", (long)unread];
+            [self.mwiBadgeButton setTitle:label];
+            self.mwiBadgeButton.hidden = NO;
+        } else {
+            self.mwiBadgeButton.hidden = YES;
+        }
+    });
+}
+
+- (IBAction)mwiBadgeTapped:(id)sender {
+    [MWIManager.shared dialVoicemail];
 }
 
 - (void)setupBLFSidebar {

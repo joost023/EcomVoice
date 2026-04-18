@@ -336,6 +336,14 @@
 		8A91758F1CA1CBD600354E26 /* UserAgentAudioDeviceNameToDeviceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A91758E1CA1CBD600354E26 /* UserAgentAudioDeviceNameToDeviceMap.swift */; };
 		8A9175931CA2C2DC00354E26 /* UserAgentAudioDevice+SystemAudioDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9175921CA2C2DC00354E26 /* UserAgentAudioDevice+SystemAudioDevice.swift */; };
 		8A9175991CA59D5C00354E26 /* PJSUAOnIncomingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9175981CA59D5C00354E26 /* PJSUAOnIncomingCall.m */; };
+		6E1A4742BC785EAD030B215F /* PJSUAOnMWI.h in Sources */ = {isa = PBXBuildFile; fileRef = E78AB9CC2C2B94305F95B9DC /* PJSUAOnMWI.h */; };
+		85477518749FB7374BDC4C09 /* PJSUAOnMWI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE298612196938C247B97193 /* PJSUAOnMWI.m */; };
+		C8AC282E05F65406E4E4C938 /* MWIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ADD16D6EE114F2102562 /* MWIManager.swift */; };
+		8F43BA997A0C1302FD28E110 /* CallOutcomeWebhook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14687EE3608E6DE50C3F176 /* CallOutcomeWebhook.swift */; };
+		102399A8494841AE411CCCB0 /* DTMFMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636999B7E5512E43DBC766E5 /* DTMFMacro.swift */; };
+		5BBAE89BC3774C7ED1EC8511 /* DTMFMacroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E972A20C43EDBADF2F2D0F69 /* DTMFMacroManager.swift */; };
+		7842B9289DFCA2EE413FF24D /* CRMPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D64FC06BD6AFD26A6967F9 /* CRMPreferencesViewController.swift */; };
+		4773F471FE5F6F59BD0B9F43 /* DTMFMacroPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B91154D863C0494DE9BCDC /* DTMFMacroPreferencesViewController.swift */; };
 		BAB9D8487F2D4C229E415FFD /* EcomVoiceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */; };
 		F8F981CDC4C24C31B4786442 /* CRMContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF26784399C4479AC31DBDD /* CRMContact.swift */; };
 		36C4ADA7DF27448F8AF25048 /* CRMLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068FDEB61C14AEFAACD211D /* CRMLookupService.swift */; };
@@ -1267,6 +1275,14 @@
 		8A9175A41CA5A10800354E26 /* PJSUAOnCallReplaced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnCallReplaced.m; sourceTree = "<group>"; };
 		8A9175A71CA5A53E00354E26 /* PJSUAOnAccountRegistrationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnAccountRegistrationState.m; sourceTree = "<group>"; };
 		8A9175AA1CA5A92500354E26 /* PJSUAOnNATDetect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnNATDetect.m; sourceTree = "<group>"; };
+		E78AB9CC2C2B94305F95B9DC /* PJSUAOnMWI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJSUAOnMWI.h; sourceTree = "<group>"; };
+		BE298612196938C247B97193 /* PJSUAOnMWI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnMWI.m; sourceTree = "<group>"; };
+		0962ADD16D6EE114F2102562 /* MWIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWIManager.swift; sourceTree = "<group>"; };
+		C14687EE3608E6DE50C3F176 /* CallOutcomeWebhook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallOutcomeWebhook.swift; sourceTree = "<group>"; };
+		636999B7E5512E43DBC766E5 /* DTMFMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTMFMacro.swift; sourceTree = "<group>"; };
+		E972A20C43EDBADF2F2D0F69 /* DTMFMacroManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTMFMacroManager.swift; sourceTree = "<group>"; };
+		97D64FC06BD6AFD26A6967F9 /* CRMPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRMPreferencesViewController.swift; sourceTree = "<group>"; };
+		69B91154D863C0494DE9BCDC /* DTMFMacroPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTMFMacroPreferencesViewController.swift; sourceTree = "<group>"; };
 		D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcomVoiceColors.swift; sourceTree = "<group>"; };
 		6EF26784399C4479AC31DBDD /* CRMContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRMContact.swift; sourceTree = "<group>"; };
 		5068FDEB61C14AEFAACD211D /* CRMLookupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRMLookupService.swift; sourceTree = "<group>"; };
@@ -3322,6 +3338,14 @@
 				8A6BA7A91F3CB110001EB8C1 /* AccountWindowController.h */,
 				8A6BA7AA1F3CB110001EB8C1 /* AccountWindowController.m */,
 				D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */,
+				E78AB9CC2C2B94305F95B9DC /* PJSUAOnMWI.h */,
+				BE298612196938C247B97193 /* PJSUAOnMWI.m */,
+				0962ADD16D6EE114F2102562 /* MWIManager.swift */,
+				C14687EE3608E6DE50C3F176 /* CallOutcomeWebhook.swift */,
+				636999B7E5512E43DBC766E5 /* DTMFMacro.swift */,
+				E972A20C43EDBADF2F2D0F69 /* DTMFMacroManager.swift */,
+				97D64FC06BD6AFD26A6967F9 /* CRMPreferencesViewController.swift */,
+				69B91154D863C0494DE9BCDC /* DTMFMacroPreferencesViewController.swift */,
 				DB1DD040B3674BF78BAE06A2 /* EcomVoiceBranding.swift */,
 				6EF26784399C4479AC31DBDD /* CRMContact.swift */,
 				5068FDEB61C14AEFAACD211D /* CRMLookupService.swift */,
@@ -4152,6 +4176,14 @@
 				B3B92047E7C84D4589D2C21F /* PJSUAOnBuddyState.m in Sources */,
 				58919606FDE44255899708D4 /* BLFSubscriptionManager.m in Sources */,
 				BAB9D8487F2D4C229E415FFD /* EcomVoiceColors.swift in Sources */,
+				6E1A4742BC785EAD030B215F /* PJSUAOnMWI.h in Sources */,
+				85477518749FB7374BDC4C09 /* PJSUAOnMWI.m in Sources */,
+				C8AC282E05F65406E4E4C938 /* MWIManager.swift in Sources */,
+				8F43BA997A0C1302FD28E110 /* CallOutcomeWebhook.swift in Sources */,
+				102399A8494841AE411CCCB0 /* DTMFMacro.swift in Sources */,
+				5BBAE89BC3774C7ED1EC8511 /* DTMFMacroManager.swift in Sources */,
+				7842B9289DFCA2EE413FF24D /* CRMPreferencesViewController.swift in Sources */,
+				4773F471FE5F6F59BD0B9F43 /* DTMFMacroPreferencesViewController.swift in Sources */,
 				D10B15D7DCE648ED8DFFB784 /* EcomVoiceBranding.swift in Sources */,
 				F8F981CDC4C24C31B4786442 /* CRMContact.swift in Sources */,
 				36C4ADA7DF27448F8AF25048 /* CRMLookupService.swift in Sources */,

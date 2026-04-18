@@ -34,6 +34,8 @@
 @synthesize soundPreferencesViewController = _soundPreferencesViewController;
 @synthesize networkPreferencesViewController = _networkPreferencesViewController;
 @synthesize blfPreferencesViewController = _blfPreferencesViewController;
+@synthesize crmPreferencesViewController = _crmPreferencesViewController;
+@synthesize dtmfPreferencesViewController = _dtmfPreferencesViewController;
 
 - (void)setDelegate:(id)aDelegate {
     if (_delegate == aDelegate) {
@@ -145,6 +147,26 @@
     blfItem.action = @selector(changeView:);
     self.blfToolbarItem = blfItem;
     [self.toolbar insertItemWithItemIdentifier:@"BLFPreferences" atIndex:self.toolbar.items.count];
+
+    // EcomVoice: CRM caller ID tab
+    NSToolbarItem *crmItem = [[NSToolbarItem alloc] initWithItemIdentifier:@"CRMPreferences"];
+    crmItem.label = @"CRM";
+    crmItem.paletteLabel = @"CRM Beller-ID";
+    crmItem.image = [NSImage imageWithSystemSymbolName:@"person.crop.rectangle" accessibilityDescription:nil];
+    crmItem.target = self;
+    crmItem.action = @selector(changeView:);
+    self.crmToolbarItem = crmItem;
+    [self.toolbar insertItemWithItemIdentifier:@"CRMPreferences" atIndex:self.toolbar.items.count];
+
+    // EcomVoice: DTMF macro tab
+    NSToolbarItem *dtmfItem = [[NSToolbarItem alloc] initWithItemIdentifier:@"DTMFPreferences"];
+    dtmfItem.label = @"DTMF";
+    dtmfItem.paletteLabel = @"DTMF Macro's";
+    dtmfItem.image = [NSImage imageWithSystemSymbolName:@"keyboard" accessibilityDescription:nil];
+    dtmfItem.target = self;
+    dtmfItem.action = @selector(changeView:);
+    self.dtmfToolbarItem = dtmfItem;
+    [self.toolbar insertItemWithItemIdentifier:@"DTMFPreferences" atIndex:self.toolbar.items.count];
 }
 
 - (BLFPreferencesViewController *)blfPreferencesViewController {
@@ -153,6 +175,22 @@
         _blfPreferencesViewController.title = @"Collega's";
     }
     return _blfPreferencesViewController;
+}
+
+- (CRMPreferencesViewController *)crmPreferencesViewController {
+    if (!_crmPreferencesViewController) {
+        _crmPreferencesViewController = [[CRMPreferencesViewController alloc] init];
+        _crmPreferencesViewController.title = @"CRM";
+    }
+    return _crmPreferencesViewController;
+}
+
+- (DTMFMacroPreferencesViewController *)dtmfPreferencesViewController {
+    if (!_dtmfPreferencesViewController) {
+        _dtmfPreferencesViewController = [[DTMFMacroPreferencesViewController alloc] init];
+        _dtmfPreferencesViewController.title = @"DTMF";
+    }
+    return _dtmfPreferencesViewController;
 }
 
 - (void)windowDidLoad {
@@ -192,6 +230,14 @@
     } else if ([sender isEqual:self.blfToolbarItem]) {
         controller = self.blfPreferencesViewController;
         title = self.blfPreferencesViewController.title;
+        firstResponder = nil;
+    } else if ([sender isEqual:self.crmToolbarItem]) {
+        controller = self.crmPreferencesViewController;
+        title = self.crmPreferencesViewController.title;
+        firstResponder = nil;
+    } else if ([sender isEqual:self.dtmfToolbarItem]) {
+        controller = self.dtmfPreferencesViewController;
+        title = self.dtmfPreferencesViewController.title;
         firstResponder = nil;
     } else {
         controller = nil;
@@ -242,7 +288,9 @@
             [[self accountsToolbarItem] itemIdentifier],
             [[self soundToolbarItem] itemIdentifier],
             [[self networkToolbarItem] itemIdentifier],
-            @"BLFPreferences"];
+            @"BLFPreferences",
+            @"CRMPreferences",
+            @"DTMFPreferences"];
 }
 
 
