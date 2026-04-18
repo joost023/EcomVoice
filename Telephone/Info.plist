@@ -36,6 +36,14 @@
 				<string>tel</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>EcomVoice Call URI</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ecomvoice</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
@@ -52,7 +60,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>Details from your contacts can be used for displaying names and phone labels and for phone number autocomplete.</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2016–2022 64 Characters</string>
+	<string>© 2026 Ecommerce-manager.nl — Powered by EcomVoice</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -65,12 +73,12 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Telephone: Call</string>
+				<string>EcomVoice: Call</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>makeCallFromTextService</string>
 			<key>NSPortName</key>
-			<string>Telephone</string>
+			<string>EcomVoice</string>
 			<key>NSSendTypes</key>
 			<array>
 				<string>NSStringPboardType</string>

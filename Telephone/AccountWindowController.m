@@ -70,6 +70,8 @@
     self.window.frameAutosaveName = self.SIPAddress;
     self.window.excludedFromWindowsMenu = YES;
 
+    [EcomVoiceBranding applyToWindow:self.window];
+
     [self.window.contentView addSubview:self.accountViewController.view];
     self.accountViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSDictionary *views = @{@"view": self.accountViewController.view};

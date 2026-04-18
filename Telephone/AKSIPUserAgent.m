@@ -372,7 +372,11 @@ static const BOOL kAKSIPUserAgentDefaultLocksCodec = YES;
     mediaConfig.no_vad = ![self detectsVoiceActivity];
     mediaConfig.enable_ice = [self usesICE];
     mediaConfig.snd_auto_close_time = 1;
+
+    // EcomVoice: high-quality audio settings for Asterisk
     mediaConfig.ec_options = PJMEDIA_ECHO_USE_SW_ECHO;
+    mediaConfig.ec_tail_len = 200;   // 200ms echo cancellation tail (good for speakerphone)
+    mediaConfig.quality = 10;        // Maximum media quality (codec complexity)
 
     if (self.usesQoS) {
         transportConfig.qos_params.flags = PJ_QOS_PARAM_HAS_DSCP;

@@ -5076,7 +5076,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.ReceiptValidationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.ReceiptValidationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
@@ -5101,7 +5101,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.ReceiptValidationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.ReceiptValidationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -5139,7 +5139,7 @@
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_LDFLAGS = "-lcrypto";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.ReceiptValidation;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.ReceiptValidation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = singlefile;
@@ -5177,7 +5177,7 @@
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_LDFLAGS = "-lcrypto";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.ReceiptValidation;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.ReceiptValidation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReceiptValidation/ReceiptValidation-Bridging-Header.h";
@@ -5206,7 +5206,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCases;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCases;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5236,7 +5236,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCases;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCases;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5259,7 +5259,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCasesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -5279,7 +5279,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCasesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -5297,7 +5297,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.TelephoneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TelephoneTests/TelephoneTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5316,7 +5316,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.TelephoneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TelephoneTests/TelephoneTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5343,7 +5343,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.Domain;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5371,7 +5371,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.Domain;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5390,7 +5390,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.DomainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.DomainTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -5407,7 +5407,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.DomainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.DomainTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -5433,7 +5433,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.DomainTestDoubles;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.DomainTestDoubles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5462,7 +5462,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.DomainTestDoubles;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.DomainTestDoubles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5491,7 +5491,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCasesTestDoubles;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCasesTestDoubles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5520,7 +5520,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone.UseCasesTestDoubles;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice.UseCasesTestDoubles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5539,7 +5539,7 @@
 				DEVELOPMENT_TEAM = B5WSA37RY8;
 				INFOPLIST_FILE = "AddressBookPlugIns/TelephoneAddressBookPhonePlugIn-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tlphn.${PRODUCT_NAME:identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.ecommerce-manager.EcomVoice";
 				PRODUCT_NAME = TelephoneAddressBookPhonePlugIn;
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5555,7 +5555,7 @@
 				DEVELOPMENT_TEAM = B5WSA37RY8;
 				INFOPLIST_FILE = "AddressBookPlugIns/TelephoneAddressBookPhonePlugIn-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tlphn.${PRODUCT_NAME:identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.ecommerce-manager.EcomVoice";
 				PRODUCT_NAME = TelephoneAddressBookPhonePlugIn;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -5574,7 +5574,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "AddressBookPlugIns/TelephoneAddressBookSIPAddressPlugIn-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tlphn.${PRODUCT_NAME:identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.ecommerce-manager.EcomVoice";
 				PRODUCT_NAME = TelephoneAddressBookSIPAddressPlugIn;
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5590,7 +5590,7 @@
 				DEVELOPMENT_TEAM = B5WSA37RY8;
 				INFOPLIST_FILE = "AddressBookPlugIns/TelephoneAddressBookSIPAddressPlugIn-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tlphn.${PRODUCT_NAME:identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.ecommerce-manager.EcomVoice";
 				PRODUCT_NAME = TelephoneAddressBookSIPAddressPlugIn;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -5661,7 +5661,7 @@
 					"-lssl",
 					"-lopus",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice;
 				PRODUCT_NAME = Telephone;
 				SWIFT_OBJC_BRIDGING_HEADER = "Telephone/Telephone-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5712,7 +5712,7 @@
 					"-lssl",
 					"-lopus",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tlphn.Telephone;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ecommerce-manager.EcomVoice;
 				PRODUCT_NAME = Telephone;
 				SWIFT_OBJC_BRIDGING_HEADER = "Telephone/Telephone-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
