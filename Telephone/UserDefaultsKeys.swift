@@ -49,4 +49,8 @@ class UserDefaultsKeys: NSObject {
 
     static let ringingSound = SettingsKeys.ringingSound
     static let significantPhoneNumberLength = SettingsKeys.significantPhoneNumberLength
+
+    // EcomVoice BLF
+    static let blfExtensions = "BLFExtensions"
+    static let blfEnabled = "BLFEnabled"
 }

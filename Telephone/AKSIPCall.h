@@ -82,6 +82,10 @@ typedef NS_ENUM(NSUInteger, AKSIPCallState) {
 
 - (void)attendedTransferToCall:(AKSIPCall *)destinationCall;
 
+// Blind (unattended) transfer: send REFER to destinationURI and hang up locally.
+// destinationURI may be a bare extension ("101") or a full SIP URI ("sip:101@host").
+- (void)blindTransferToDestination:(NSString *)destinationURI;
+
 - (void)sendRingingNotification;
 - (void)replyWithTemporarilyUnavailable;
 - (void)replyWithBusyHere;

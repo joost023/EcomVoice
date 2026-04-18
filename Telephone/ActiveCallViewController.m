@@ -25,6 +25,8 @@
 #import "CallTransferController.h"
 #import "EndedCallViewController.h"
 
+#import "Telephone-Swift.h"
+
 
 @interface ActiveCallViewController () <NSMenuItemValidation>
 
@@ -75,12 +77,39 @@
 }
 
 - (IBAction)showCallTransferSheet:(id)sender {
+    // Show a menu to choose between blind and attended transfer.
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@"Transfer"];
+
+    NSMenuItem *blindItem = [[NSMenuItem alloc] initWithTitle:@"Blind doorverbinden…"
+                                                       action:@selector(showBlindTransferSheet:)
+                                                keyEquivalent:@""];
+    blindItem.target = self;
+    [menu addItem:blindItem];
+
+    NSMenuItem *attendedItem = [[NSMenuItem alloc] initWithTitle:@"Aangemeld doorverbinden…"
+                                                          action:@selector(showAttendedTransferSheet:)
+                                                   keyEquivalent:@""];
+    attendedItem.target = self;
+    [menu addItem:attendedItem];
+
+    NSButton *button = (NSButton *)sender;
+    [menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(0, button.bounds.size.height) inView:button];
+}
+
+- (void)showBlindTransferSheet:(id)sender {
+    BlindTransferViewController *vc = [[BlindTransferViewController alloc] init];
+    __weak CallController *callController = [self callController];
+    vc.onTransfer = ^(NSString *destination) {
+        [[callController call] blindTransferToDestination:destination];
+    };
+    [self presentViewControllerAsSheet:vc];
+}
+
+- (void)showAttendedTransferSheet:(id)sender {
     if (![[self callController] isCallOnHold]) {
         [[self callController] toggleCallHold];
     }
-    
     CallTransferController *callTransferController = [[self callController] callTransferController];
-
     [[[self callController] window] beginSheet:[callTransferController window] completionHandler:nil];
 }
 

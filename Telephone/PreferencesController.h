@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class AKSIPUserAgent;
 @class GeneralPreferencesViewController, AccountPreferencesViewController;
 @class SoundPreferencesViewController, NetworkPreferencesViewController;
+@class BLFPreferencesViewController;
 
 // A preferences controller.
 @interface PreferencesController : NSWindowController <SoundIOPreferences>
@@ -49,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Network preferences view controller.
 @property(nonatomic, readonly) NetworkPreferencesViewController *networkPreferencesViewController;
 
+// BLF preferences view controller (EcomVoice).
+@property(nonatomic, readonly) BLFPreferencesViewController *blfPreferencesViewController;
+
 // Outlets.
 //
 @property(nonatomic, weak) IBOutlet NSToolbar *toolbar;
@@ -56,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) IBOutlet NSToolbarItem *accountsToolbarItem;
 @property(nonatomic, weak) IBOutlet NSToolbarItem *soundToolbarItem;
 @property(nonatomic, weak) IBOutlet NSToolbarItem *networkToolbarItem;
+// EcomVoice BLF tab (added programmatically)
+@property(nonatomic) NSToolbarItem *blfToolbarItem;
 
 - (instancetype)initWithDelegate:(id<PreferencesControllerDelegate>)delegate
                        userAgent:(AKSIPUserAgent *)userAgent

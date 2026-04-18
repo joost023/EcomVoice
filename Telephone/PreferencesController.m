@@ -25,12 +25,15 @@
 #import "NetworkPreferencesViewController.h"
 #import "SoundPreferencesViewController.h"
 
+#import "Telephone-Swift.h"
+
 @implementation PreferencesController
 
 @synthesize generalPreferencesViewController = _generalPreferencesViewController;
 @synthesize accountPreferencesViewController = _accountPreferencesViewController;
 @synthesize soundPreferencesViewController = _soundPreferencesViewController;
 @synthesize networkPreferencesViewController = _networkPreferencesViewController;
+@synthesize blfPreferencesViewController = _blfPreferencesViewController;
 
 - (void)setDelegate:(id)aDelegate {
     if (_delegate == aDelegate) {
@@ -132,6 +135,24 @@
     self.accountsToolbarItem.image = [NSImage imageWithSystemSymbolName:@"at" accessibilityDescription:nil];
     self.soundToolbarItem.image = [NSImage imageWithSystemSymbolName:@"speaker.wave.2" accessibilityDescription:nil];
     self.networkToolbarItem.image = [NSImage imageWithSystemSymbolName:@"network" accessibilityDescription:nil];
+
+    // EcomVoice: add BLF toolbar item programmatically
+    NSToolbarItem *blfItem = [[NSToolbarItem alloc] initWithItemIdentifier:@"BLFPreferences"];
+    blfItem.label = @"Collega's";
+    blfItem.paletteLabel = @"Collega's (BLF)";
+    blfItem.image = [NSImage imageWithSystemSymbolName:@"person.2" accessibilityDescription:nil];
+    blfItem.target = self;
+    blfItem.action = @selector(changeView:);
+    self.blfToolbarItem = blfItem;
+    [self.toolbar insertItemWithItemIdentifier:@"BLFPreferences" atIndex:self.toolbar.items.count];
+}
+
+- (BLFPreferencesViewController *)blfPreferencesViewController {
+    if (!_blfPreferencesViewController) {
+        _blfPreferencesViewController = [[BLFPreferencesViewController alloc] init];
+        _blfPreferencesViewController.title = @"Collega's";
+    }
+    return _blfPreferencesViewController;
 }
 
 - (void)windowDidLoad {
@@ -168,9 +189,13 @@
         controller = self.networkPreferencesViewController;
         title = self.networkPreferencesViewController.title;
         firstResponder = nil;
+    } else if ([sender isEqual:self.blfToolbarItem]) {
+        controller = self.blfPreferencesViewController;
+        title = self.blfPreferencesViewController.title;
+        firstResponder = nil;
     } else {
         controller = nil;
-        title = NSLocalizedString(@"Telephone Preferences", @"Preferences default window title.");
+        title = NSLocalizedString(@"EcomVoice Preferences", @"Preferences default window title.");
         firstResponder = nil;
     }
 
@@ -216,7 +241,8 @@
     return @[[[self generalToolbarItem] itemIdentifier],
             [[self accountsToolbarItem] itemIdentifier],
             [[self soundToolbarItem] itemIdentifier],
-            [[self networkToolbarItem] itemIdentifier]];
+            [[self networkToolbarItem] itemIdentifier],
+            @"BLFPreferences"];
 }
 
 

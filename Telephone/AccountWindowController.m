@@ -22,7 +22,7 @@
 
 #import "Telephone-Swift.h"
 
-@interface AccountWindowController ()
+@interface AccountWindowController () <BLFPanelViewControllerDelegate>
 
 @property(nonatomic, readonly) NSString *accountDescription;
 @property(nonatomic, readonly) NSString *SIPAddress;
@@ -34,6 +34,10 @@
 @property(nonatomic, weak) IBOutlet NSMenuItem *availableStateItem;
 @property(nonatomic, weak) IBOutlet NSMenuItem *unavailableStateItem;
 @property(nonatomic, weak) IBOutlet NSMenuItem *offlineStateItem;
+
+// EcomVoice BLF
+@property(nonatomic) BLFSubscriptionManager *blfManager;
+@property(nonatomic) BLFPanelViewController *blfPanelViewController;
 
 @end
 
@@ -72,13 +76,68 @@
 
     [EcomVoiceBranding applyToWindow:self.window];
 
-    [self.window.contentView addSubview:self.accountViewController.view];
-    self.accountViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *views = @{@"view": self.accountViewController.view};
-    [self.window.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:views]];
-    [self.window.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
+    BOOL blfEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:UserDefaultsKeys.blfEnabled];
+    if (blfEnabled) {
+        [self setupBLFSidebar];
+    } else {
+        // Original full-width layout
+        [self.window.contentView addSubview:self.accountViewController.view];
+        self.accountViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+        NSDictionary *views = @{@"view": self.accountViewController.view};
+        [self.window.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:views]];
+        [self.window.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
+    }
 
     [self showOfflineStateAnimated:NO];
+}
+
+- (void)setupBLFSidebar {
+    NSView *contentView = self.window.contentView;
+
+    // Main account view (left, existing width)
+    NSView *accountView = self.accountViewController.view;
+    accountView.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentView addSubview:accountView];
+
+    // BLF sidebar (right, fixed 160pt)
+    self.blfManager = [[BLFSubscriptionManager alloc] init];
+    self.blfPanelViewController = [[BLFPanelViewController alloc] initWithSubscriptionManager:self.blfManager];
+    self.blfPanelViewController.delegate = self;
+    [self addChildViewController:self.blfPanelViewController];
+
+    NSView *blfView = self.blfPanelViewController.view;
+    blfView.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentView addSubview:blfView];
+
+    // Thin vertical separator
+    NSView *separator = [[NSView alloc] init];
+    separator.translatesAutoresizingMaskIntoConstraints = false;
+    separator.wantsLayer = YES;
+    separator.layer.backgroundColor = [NSColor colorWithWhite:1.0 alpha:0.1].CGColor;
+    [contentView addSubview:separator];
+
+    NSDictionary *metrics = @{@"blfWidth": @160};
+    NSDictionary *views = @{@"account": accountView, @"blf": blfView, @"sep": separator};
+
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[account][sep(1)][blf(==blfWidth)]|"
+                                                                        options:0 metrics:metrics views:views]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[account]|"
+                                                                        options:0 metrics:nil views:views]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[sep]|"
+                                                                        options:0 metrics:nil views:views]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[blf]|"
+                                                                        options:0 metrics:nil views:views]];
+
+    // Expand window width to accommodate sidebar
+    NSRect frame = self.window.frame;
+    frame.size.width += 161;
+    [self.window setFrame:frame display:NO];
+}
+
+#pragma mark - BLFPanelViewControllerDelegate
+
+- (void)blfPanel:(BLFPanelViewController *)panel didRequestCallToExtension:(NSString *)extension {
+    [self makeCallToDestination:extension];
 }
 
 #pragma mark -

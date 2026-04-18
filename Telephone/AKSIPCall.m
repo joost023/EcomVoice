@@ -234,6 +234,29 @@
     }
 }
 
+- (void)blindTransferToDestination:(NSString *)destinationURI {
+    // Build a properly formatted SIP URI if only an extension was given.
+    NSString *uri = destinationURI;
+    if (![uri hasPrefix:@"sip:"]) {
+        // Derive host from own account's SIP address (e.g. "101@pbx.host")
+        NSString *localHost = [[[self account] uri] host];
+        if (localHost.length > 0) {
+            uri = [NSString stringWithFormat:@"sip:%@@%@", destinationURI, localHost];
+        } else {
+            uri = [NSString stringWithFormat:@"sip:%@", destinationURI];
+        }
+    }
+
+    [self setTransferStatus:kAKSIPUserAgentInvalidIdentifier];
+    [self setTransferStatusText:@""];
+
+    pj_str_t pjURI = [uri pjString];
+    pj_status_t status = pjsua_call_xfer((pjsua_call_id)[self identifier], &pjURI, NULL);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Error blind-transferring call %@ to %@", self, uri);
+    }
+}
+
 - (void)sendRingingNotification {
     pj_status_t status = pjsua_call_answer((pjsua_call_id)[self identifier], PJSIP_SC_RINGING, NULL, NULL);
     if (status != PJ_SUCCESS) {
