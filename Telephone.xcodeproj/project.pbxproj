@@ -336,6 +336,14 @@
 		8A91758F1CA1CBD600354E26 /* UserAgentAudioDeviceNameToDeviceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A91758E1CA1CBD600354E26 /* UserAgentAudioDeviceNameToDeviceMap.swift */; };
 		8A9175931CA2C2DC00354E26 /* UserAgentAudioDevice+SystemAudioDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9175921CA2C2DC00354E26 /* UserAgentAudioDevice+SystemAudioDevice.swift */; };
 		8A9175991CA59D5C00354E26 /* PJSUAOnIncomingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9175981CA59D5C00354E26 /* PJSUAOnIncomingCall.m */; };
+		BAB9D8487F2D4C229E415FFD /* EcomVoiceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */; };
+		D10B15D7DCE648ED8DFFB784 /* EcomVoiceBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DD040B3674BF78BAE06A2 /* EcomVoiceBranding.swift */; };
+		DE063557FD5D4E7599CDB178 /* BLFExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B81898D09584D61B9A431BB /* BLFExtension.swift */; };
+		A653C9840B474A278BFA5F41 /* BLFPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E21DA2E5E24AFBA6E77729 /* BLFPanelViewController.swift */; };
+		2F7BCF58D32C478FAE217127 /* BLFPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2852DD483D4F86A4576639 /* BLFPreferencesViewController.swift */; };
+		58919606FDE44255899708D4 /* BLFSubscriptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F44816C73A45ECB8ADEB1A /* BLFSubscriptionManager.m */; };
+		D2129D052576493D866A366D /* BlindTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BF18DCBFE8441C8CBE491D /* BlindTransferViewController.swift */; };
+		B3B92047E7C84D4589D2C21F /* PJSUAOnBuddyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ED6524496E4B18A8DADCD4 /* PJSUAOnBuddyState.m */; };
 		8A91759C1CA59E2700354E26 /* PJSUAOnCallState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A91759B1CA59E2700354E26 /* PJSUAOnCallState.m */; };
 		8A91759F1CA59F1100354E26 /* PJSUAOnCallMediaState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A91759E1CA59F1100354E26 /* PJSUAOnCallMediaState.m */; };
 		8A9175A21CA5A02500354E26 /* PJSUAOnCallTransferStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9175A11CA5A02500354E26 /* PJSUAOnCallTransferStatus.m */; };
@@ -1255,6 +1263,16 @@
 		8A9175A41CA5A10800354E26 /* PJSUAOnCallReplaced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnCallReplaced.m; sourceTree = "<group>"; };
 		8A9175A71CA5A53E00354E26 /* PJSUAOnAccountRegistrationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnAccountRegistrationState.m; sourceTree = "<group>"; };
 		8A9175AA1CA5A92500354E26 /* PJSUAOnNATDetect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnNATDetect.m; sourceTree = "<group>"; };
+		D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcomVoiceColors.swift; sourceTree = "<group>"; };
+		DB1DD040B3674BF78BAE06A2 /* EcomVoiceBranding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcomVoiceBranding.swift; sourceTree = "<group>"; };
+		7B81898D09584D61B9A431BB /* BLFExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLFExtension.swift; sourceTree = "<group>"; };
+		62E21DA2E5E24AFBA6E77729 /* BLFPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLFPanelViewController.swift; sourceTree = "<group>"; };
+		8D2852DD483D4F86A4576639 /* BLFPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLFPreferencesViewController.swift; sourceTree = "<group>"; };
+		53AAE033C24D4E9AA6CC571B /* BLFSubscriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFSubscriptionManager.h; sourceTree = "<group>"; };
+		03F44816C73A45ECB8ADEB1A /* BLFSubscriptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFSubscriptionManager.m; sourceTree = "<group>"; };
+		58BF18DCBFE8441C8CBE491D /* BlindTransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlindTransferViewController.swift; sourceTree = "<group>"; };
+		736765259FB24ABB935E4AC7 /* PJSUAOnBuddyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJSUAOnBuddyState.h; sourceTree = "<group>"; };
+		40ED6524496E4B18A8DADCD4 /* PJSUAOnBuddyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSUAOnBuddyState.m; sourceTree = "<group>"; };
 		8A9175AC1CABF61200354E26 /* UserAgentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgentError.swift; sourceTree = "<group>"; };
 		8A9175AF1CABFCA700354E26 /* SystemAudioDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemAudioDevice.swift; sourceTree = "<group>"; };
 		8A92B7B71E784BC200922B1E /* CallHistoryRecordRemoveUseCaseFactorySpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallHistoryRecordRemoveUseCaseFactorySpy.swift; sourceTree = "<group>"; };
@@ -3295,6 +3313,13 @@
 				8A1AA7D41F473DC800804280 /* AccountViewController.m */,
 				8A6BA7A91F3CB110001EB8C1 /* AccountWindowController.h */,
 				8A6BA7AA1F3CB110001EB8C1 /* AccountWindowController.m */,
+				D5106F894CE7479AB0C1C8B4 /* EcomVoiceColors.swift */,
+				DB1DD040B3674BF78BAE06A2 /* EcomVoiceBranding.swift */,
+				7B81898D09584D61B9A431BB /* BLFExtension.swift */,
+				62E21DA2E5E24AFBA6E77729 /* BLFPanelViewController.swift */,
+				53AAE033C24D4E9AA6CC571B /* BLFSubscriptionManager.h */,
+				03F44816C73A45ECB8ADEB1A /* BLFSubscriptionManager.m */,
+				58BF18DCBFE8441C8CBE491D /* BlindTransferViewController.swift */,
 				8AD805841E9FD8F6003089DF /* AccountControllerToAccountAdapter.h */,
 				8AD805851E9FD8F6003089DF /* AccountControllerToAccountAdapter.m */,
 				AAF633681056FEA600CF6C3B /* ActiveAccountViewController.h */,
@@ -3320,6 +3345,7 @@
 				AA34AF3D1073B7C700FA38F7 /* AccountPreferencesViewController.m */,
 				AA34AF491073B84700FA38F7 /* NetworkPreferencesViewController.h */,
 				AA34AF4A1073B84700FA38F7 /* NetworkPreferencesViewController.m */,
+				8D2852DD483D4F86A4576639 /* BLFPreferencesViewController.swift */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -3399,6 +3425,8 @@
 				8A9175A71CA5A53E00354E26 /* PJSUAOnAccountRegistrationState.m */,
 				8A6D2A272540D51800A978A7 /* PJSUAOnAccountFindForIncoming.m */,
 				8A9175AA1CA5A92500354E26 /* PJSUAOnNATDetect.m */,
+				736765259FB24ABB935E4AC7 /* PJSUAOnBuddyState.h */,
+				40ED6524496E4B18A8DADCD4 /* PJSUAOnBuddyState.m */,
 				8A9175AC1CABF61200354E26 /* UserAgentError.swift */,
 			);
 			name = "SIP User Agent";
@@ -4109,6 +4137,14 @@
 				AA34AF831073BF5D00FA38F7 /* GeneralPreferencesViewController.m in Sources */,
 				8A6D2A282540D51800A978A7 /* PJSUAOnAccountFindForIncoming.m in Sources */,
 				8A9175AB1CA5A92500354E26 /* PJSUAOnNATDetect.m in Sources */,
+				B3B92047E7C84D4589D2C21F /* PJSUAOnBuddyState.m in Sources */,
+				58919606FDE44255899708D4 /* BLFSubscriptionManager.m in Sources */,
+				BAB9D8487F2D4C229E415FFD /* EcomVoiceColors.swift in Sources */,
+				D10B15D7DCE648ED8DFFB784 /* EcomVoiceBranding.swift in Sources */,
+				DE063557FD5D4E7599CDB178 /* BLFExtension.swift in Sources */,
+				A653C9840B474A278BFA5F41 /* BLFPanelViewController.swift in Sources */,
+				2F7BCF58D32C478FAE217127 /* BLFPreferencesViewController.swift in Sources */,
+				D2129D052576493D866A366D /* BlindTransferViewController.swift in Sources */,
 				AAFCFFBD1074BFCA0018C7DA /* AccountSetupController.m in Sources */,
 				8AFC630E1D8C6F490022470D /* Array+Creating.swift in Sources */,
 				8A6568912180641400DAF0F6 /* PJSUACallInfo.m in Sources */,
