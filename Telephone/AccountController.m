@@ -801,7 +801,17 @@ static NSString * const kRussian = @"ru";
     [aCallController setRedialURI:[aCall remoteURI]];
     
     [aCallController showIncomingCallView];
-    
+
+    // CRM Caller ID lookup — async, non-blocking.
+    NSString *remoteUser = [[aCall remoteURI] user] ?: @"";
+    if ([remoteUser length] > 0) {
+        [[CRMLookupService shared] lookupWithPhoneNumber:remoteUser completion:^(CRMContact *contact) {
+            if (contact != nil) {
+                [CallerIDPopupController showFor:contact];
+            }
+        }];
+    }
+
     [aCallController showWindow:nil];
     
     // Show user notification.

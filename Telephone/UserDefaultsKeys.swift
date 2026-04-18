@@ -53,4 +53,8 @@ class UserDefaultsKeys: NSObject {
     // EcomVoice BLF
     static let blfExtensions = "BLFExtensions"
     static let blfEnabled = "BLFEnabled"
+
+    // EcomVoice CRM Caller ID
+    static let crmWebhookURL = "CRMWebhookURL"
+    static let crmEnabled = "CRMEnabled"
 }

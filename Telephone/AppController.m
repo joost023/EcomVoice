@@ -756,7 +756,9 @@ NS_ASSUME_NONNULL_END
 #pragma mark Apple event handler for URLs support
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
-    [self makeCallOrRememberDestination:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    NSString *urlString = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+    NSString *destination = [URLCallDestinationParser destinationFrom:urlString];
+    [self makeCallOrRememberDestination:destination ?: urlString];
 }
 
 
