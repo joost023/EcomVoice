@@ -1,6 +1,7 @@
 // PJSUAOnBuddyState.h
 // EcomVoice — Powered by Ecommerce-manager.nl
 
+#import <Foundation/Foundation.h>
 #import <pjsua-lib/pjsua.h>
 
 void PJSUAOnBuddyState(pjsua_buddy_id buddy_id);

@@ -19,7 +19,7 @@ static NSInteger blfStatusFromBuddyInfo(const pjsua_buddy_info *info) {
 
     switch (info->status) {
         case PJSUA_BUDDY_STATUS_ONLINE:
-            if (info->activity == PJRPID_ACTIVITY_BUSY) {
+            if (info->rpid.activity == PJRPID_ACTIVITY_BUSY) {
                 return 2; // BLFStatus.busy
             }
             return 1; // BLFStatus.available
@@ -43,7 +43,7 @@ void PJSUAOnBuddyState(pjsua_buddy_id buddy_id) {
 
     NSInteger blfStatus = blfStatusFromBuddyInfo(&info);
     PJ_LOG(4, (THIS_FILE, "Buddy %d state changed: sub_state=%d pjstatus=%d activity=%d -> BLFStatus=%ld",
-               buddy_id, info.sub_state, info.status, info.activity, (long)blfStatus));
+               buddy_id, info.sub_state, info.status, info.rpid.activity, (long)blfStatus));
 
     dispatch_async(dispatch_get_main_queue(), ^{
         NSDictionary *userInfo = @{

@@ -15,6 +15,7 @@
 #import "AKSIPCallNotifications.h"
 #import "AKSIPURI.h"
 #import "AKSIPUserAgent.h"
+#import "BLFSubscriptionManager.h"
 #import "MusicPlayerFactory.h"
 #import "NameServers.h"
 #import "PreferencesController.h"

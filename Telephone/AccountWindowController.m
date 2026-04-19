@@ -146,7 +146,8 @@
     self.blfManager = [[BLFSubscriptionManager alloc] init];
     self.blfPanelViewController = [[BLFPanelViewController alloc] initWithSubscriptionManager:self.blfManager];
     self.blfPanelViewController.delegate = self;
-    [self addChildViewController:self.blfPanelViewController];
+    // NSWindowController doesn't support addChildViewController; the BLF VC
+    // manages its own lifecycle — just add its view directly.
 
     NSView *blfView = self.blfPanelViewController.view;
     blfView.translatesAutoresizingMaskIntoConstraints = NO;

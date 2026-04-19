@@ -123,16 +123,28 @@
 }
 
 - (nullable NSString *)resolvedSIPHost {
-    AKSIPUserAgent *agent = [AKSIPUserAgent sharedUserAgent];
-    for (id account in agent.accounts) {
-        // AKSIPAccount has a registrationURI / proxyHost property
-        NSString *host = [account valueForKey:@"proxyHost"];
-        if (host.length > 0) { return host; }
-        // Fall back to domain extracted from SIP address
-        NSString *sipAddr = [account valueForKey:@"SIPAddress"];
-        if (sipAddr.length > 0) {
-            NSArray *parts = [sipAddr componentsSeparatedByString:@"@"];
-            if (parts.count == 2) { return parts[1]; }
+    // Use PJSIP C API to iterate active accounts and extract the registrar host.
+    unsigned count = pjsua_acc_get_count();
+    for (unsigned i = 0; i < count; i++) {
+        pjsua_acc_id acc_id = (pjsua_acc_id)i;
+        if (!pjsua_acc_is_valid(acc_id)) { continue; }
+        pjsua_acc_info info;
+        if (pjsua_acc_get_info(acc_id, &info) != PJ_SUCCESS) { continue; }
+        // Extract host from the account's URI (sip:user@host)
+        NSString *uri = [[NSString alloc] initWithBytes:info.acc_uri.ptr
+                                                 length:(NSUInteger)info.acc_uri.slen
+                                               encoding:NSUTF8StringEncoding];
+        if (uri.length == 0) { continue; }
+        // Strip "sip:" prefix and take the part after @
+        NSRange atRange = [uri rangeOfString:@"@"];
+        if (atRange.location != NSNotFound) {
+            NSString *host = [uri substringFromIndex:NSMaxRange(atRange)];
+            // Remove any trailing port or params
+            NSArray *parts = [host componentsSeparatedByCharactersInSet:
+                              [NSCharacterSet characterSetWithCharactersInString:@":;>"]];
+            NSString *hostOnly = [parts.firstObject stringByTrimmingCharactersInSet:
+                                  [NSCharacterSet whitespaceCharacterSet]];
+            if (hostOnly.length > 0) { return hostOnly; }
         }
     }
     return nil;

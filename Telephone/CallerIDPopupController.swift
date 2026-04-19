@@ -1,6 +1,7 @@
 // CallerIDPopupController.swift
 // EcomVoice — Powered by Ecommerce-manager.nl
 
+import Foundation
 import AppKit
 
 /// Floating popup window that appears in the top-right corner of the screen
@@ -9,7 +10,7 @@ import AppKit
 @objc class CallerIDPopupController: NSWindowController {
 
     private static let autoDismissInterval: TimeInterval = 12.0
-    private var dismissTimer: Timer?
+    private var dismissTimer: Foundation.Timer?
 
     // MARK: - Factory
 
@@ -175,7 +176,7 @@ import AppKit
     }
 
     private func scheduleDismiss() {
-        dismissTimer = Timer.scheduledTimer(withTimeInterval: CallerIDPopupController.autoDismissInterval,
+        dismissTimer = Foundation.Timer.scheduledTimer(withTimeInterval: CallerIDPopupController.autoDismissInterval,
                                             repeats: false) { [weak self] _ in
             self?.dismiss()
         }

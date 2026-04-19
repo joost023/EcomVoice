@@ -3,17 +3,23 @@
 
 #import "PJSUAOnMWI.h"
 #import <Foundation/Foundation.h>
+#import <pjsip.h>
 
 NSString * const MWIStatusChangedNotification = @"MWIStatusChangedNotification";
 
-void PJSUAOnMWI(pjsua_acc_id acc_id, const pjsua_mwi_info *mwi_info) {
-    if (mwi_info == NULL || mwi_info->body.ptr == NULL || mwi_info->body.slen == 0) {
+void PJSUAOnMWI(pjsua_acc_id acc_id, pjsua_mwi_info *mwi_info) {
+    if (mwi_info == NULL || mwi_info->rdata == NULL) {
         return;
     }
 
-    // Convert pj_str_t body to NSString for parsing
-    NSString *body = [[NSString alloc] initWithBytes:mwi_info->body.ptr
-                                              length:(NSUInteger)mwi_info->body.slen
+    // Extract body text from the received NOTIFY
+    pjsip_msg *msg = mwi_info->rdata->msg_info.msg;
+    if (msg == NULL || msg->body == NULL || msg->body->data == NULL || msg->body->len == 0) {
+        return;
+    }
+
+    NSString *body = [[NSString alloc] initWithBytes:msg->body->data
+                                              length:(NSUInteger)msg->body->len
                                             encoding:NSUTF8StringEncoding];
     if (body == nil) {
         return;
@@ -33,15 +39,13 @@ void PJSUAOnMWI(pjsua_acc_id acc_id, const pjsua_mwi_info *mwi_info) {
     NSInteger total = 0;
 
     if (messagesWaiting) {
-        // Parse "Voice-Message: X/Y (A/B)" — X = new, Y = old (A/B = urgent variants)
+        // Parse "Voice-Message: X/Y" — X = new, Y = old
         NSRange vmRange = [body rangeOfString:@"Voice-Message:" options:NSCaseInsensitiveSearch];
         if (vmRange.location != NSNotFound) {
             NSString *afterVM = [body substringFromIndex:NSMaxRange(vmRange)];
             NSString *firstLine = [[afterVM componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] firstObject];
             NSString *trimmed = [firstLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
-            // Format: "X/Y" or "X/Y (A/B)"
-            // Strip anything after a space or parenthesis to get "X/Y"
+            // Strip anything after space or paren: "X/Y (A/B)" → "X/Y"
             NSArray<NSString *> *parts = [trimmed componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" ("]];
             NSString *counts = [parts firstObject];
             NSArray<NSString *> *countParts = [counts componentsSeparatedByString:@"/"];
