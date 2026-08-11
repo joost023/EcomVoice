@@ -11,3 +11,8 @@ ThirdParty/LibreSSL/*
 !ThirdParty/LibreSSL/patches
 ThirdParty/PJSIP/*
 !ThirdParty/PJSIP/patches
+
+# Environment files
+.env
+.env.*
+!.env.example
